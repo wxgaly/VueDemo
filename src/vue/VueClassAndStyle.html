@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ClassAndStyle</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div v-bind:class="{ active: isActive }"></div>
+
+<div class="static"
+     v-bind:class="{ active: isActive, 'text-danger': hasError }">
+</div>
+
+<h1 v-if="ok">Yes</h1>
+<h1 v-else>No</h1>
+
+<ul id="example-1">
+  <li v-for="item in items">
+    {{ item.message }}
+  </li>
+</ul>
+
+<script>
+
+  var vue = new Vue({
+    data: {
+      isActive: true,
+      hasError: true
+    }
+  })
+
+  var example1 = new Vue({
+    el: '#example-1',
+    data: {
+      items: [
+        { message: 'Foo' },
+        { message: 'Bar' }
+      ]
+    }
+  })
+
+</script>
+
+</body>
+</html>
