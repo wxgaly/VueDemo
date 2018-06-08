@@ -45,7 +45,7 @@
     Submit
   </button>
   <!-- 同上 -->
-  <input v-on:keyup.enter="submit($value)">
+  <input v-on:keyup.enter="submit(message)" v-model="message">
 </div>
 
 <script>
