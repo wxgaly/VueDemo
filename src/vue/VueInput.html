@@ -8,7 +8,7 @@
 <body>
 
 <div id="example1">
-  <input v-model="message" placeholder="edit me">
+  <input placeholder="edit me" v-model="message" v-model.trim="msg"> <!--v-model.lazy="message"-->
   <p>Message is: {{ message }}</p>
 </div>
 
@@ -76,6 +76,29 @@
 
 </div>
 
+
+<div id="example8">
+  <input
+    type="checkbox"
+    v-model="toggle"
+    true-value="yes"
+    false-value="no"
+  >
+  <input type="radio" v-model="pick" v-bind:value="a">
+
+  <select v-model="selected">
+    <!-- 内联对象字面量 -->
+    <option v-bind:value="{ number: 123 }">123</option>
+  </select>
+
+</div>
+
+<div id="example9">
+
+  <input v-model.number="age" type="number">
+  <label>{{age}}</label>
+</div>
+
 <script>
 
   new Vue({
@@ -136,6 +159,23 @@
         {text: 'Two', value: 'B'},
         {text: 'Three', value: 'C'}
       ]
+    }
+  })
+
+  new Vue({
+    el: '#example8',
+    data: {
+      toggle: false,
+      pick: false,
+      a: 'yes',
+      selected: false
+    }
+  })
+
+  new Vue({
+    el: '#example9',
+    data: {
+      age: ''
     }
   })
 
