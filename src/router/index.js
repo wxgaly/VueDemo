@@ -11,13 +11,16 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/',
       name: 'TodoList',
       component: TodoList
+    },
+    {
+      path: '/TodoList',
+      component: TodoList
+    },
+    {
+      path: '/HelloWorld',
+      component: HelloWorld
     },
     { path: '/bar', component: Bar }
   ]
