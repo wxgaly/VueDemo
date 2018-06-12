@@ -1,13 +1,25 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <p>
+      <router-link to="/HelloWorld">Go HelloWorld</router-link>
+      <router-link to="/TodoList">Go TodoList</router-link>
+      <router-link to="/bar">Go to Bar</router-link>
+    </p>
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    goBack () {
+      window.history.length > 1
+        ? this.$router.go(-1)
+        : this.$router.push('/')
+    }
+  }
 }
 </script>
 
