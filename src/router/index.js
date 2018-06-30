@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import TodoList from '@/components/TodoList'
+import Login from '@/components/Login'
 
 const Bar = { template: '<div>bar</div>' }
 
@@ -22,6 +23,10 @@ export default new Router({
       path: '/HelloWorld',
       component: HelloWorld
     },
-    { path: '/bar', component: Bar }
+    { path: '/bar', component: Bar },
+    {
+      path: '/Login',
+      component: Login
+    }
   ]
 })

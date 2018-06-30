@@ -5,6 +5,7 @@
       <router-link to="/HelloWorld">Go HelloWorld</router-link>
       <router-link to="/TodoList">Go TodoList</router-link>
       <router-link to="/bar">Go to Bar</router-link>
+      <router-link to="/Login">Go to Login</router-link>
     </p>
     <router-view/>
   </div>
