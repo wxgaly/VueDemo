@@ -21,7 +21,7 @@
 <script>
 export default {
   name: 'Login',
-  data() {
+  data () {
     return {
       username_placeholder: '请输入用户名',
       password_placeholder: '请输入密码'
