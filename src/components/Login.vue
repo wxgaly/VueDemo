@@ -32,7 +32,9 @@ export default {
   methods: {
     onLogin () {
       if (this.usernameValue && this.passwordValue) {
-        this.$api.login(this.usernameValue, this.passwordValue)
+        this.$api.login(this.usernameValue, this.passwordValue, function (res) {
+          console.log(res.data.username)
+        })
       } else {
         alert('用户名或密码不能为空!')
       }
