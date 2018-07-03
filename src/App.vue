@@ -7,7 +7,7 @@
       <router-link to="/bar">Go to Bar</router-link>
       <router-link to="/Login">Go to Login</router-link>
     </p>
-    <router-view/>
+    <router-view id="routerView"/>
   </div>
 </template>
 
@@ -30,7 +30,22 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  vertical-align: middle;
   color: #2c3e50;
-  margin-top: 60px;
+  font-size: large;
+  /*margin-top: 60px;*/
 }
+
+#app img {
+  display: none;
+}
+
+#routerView {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
 </style>

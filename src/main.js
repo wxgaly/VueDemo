@@ -3,8 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import 'lib-flexible/flexible'
+import * as Api from './api/index.js'
 
-// import Api from './api/index.js'
 // import Utils from './utils/index.js'
 // import ElementUI from 'element-ui'
 // import 'element-ui/lib/theme-chalk/index.css'
@@ -20,5 +21,5 @@ new Vue({
 })
 
 // Vue.prototype.$utils = Utils
-// Vue.prototype.$api = Api
+Vue.prototype.$api = Api
 // Vue.use(ElementUI)
