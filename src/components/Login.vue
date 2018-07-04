@@ -3,8 +3,18 @@
   <div class="login-box">
 
     <form class="form" @submit="onLogin">
-      <input class="username" v-bind:placeholder="username_placeholder" v-model.trim="usernameValue"/>
-      <input class="password" v-bind:placeholder="password_placeholder" v-model.trim="passwordValue"/>
+      <div class="form-user">
+        <i class="icon-user"></i>
+        <input class="username" v-bind:placeholder="username_placeholder"
+               v-model.trim="usernameValue" type="text"/>
+      </div>
+
+      <div class="form-password">
+        <i class="icon-password"></i>
+        <input class="password" v-bind:placeholder="password_placeholder"
+               v-model.trim="passwordValue" type="password"/>
+      </div>
+
       <input class="login" type="submit" value="登录">
       <input class="register" type="button" value="注册" @click="onRegister">
     </form>
@@ -50,20 +60,52 @@ export default {
 .login-box {
   width: 500px;
   height: 300px;
-  background: #26b7ff;
+  background: #5ebcbb;
   border-radius: 10px;
   display: inline-block;
 }
 
+.login-box .form-user {
+  width: 500px;
+  position: relative;
+}
+
+.login-box .form-password {
+  width: 500px;
+  position: relative;
+}
+
+.form-user .icon-user {
+  background: url("../assets/ic_user.png") no-repeat;
+  position: absolute;
+  top: 105px;
+  left: 88px;
+  width: 36px; /*设置图片显示的宽*/
+  height: 36px; /*图片显示的高*/
+}
+
+.login-box .form-password .icon-password {
+  background: url("../assets/ic_password.png") no-repeat;
+  position: absolute;
+  top: 25px;
+  left: 88px;
+  width: 30px; /*设置图片显示的宽*/
+  height: 30px; /*图片显示的高*/
+}
+
 .login-box .username {
   margin: 100px 50px 0 50px;
+  width: 300px;
+  height: 30px;
+  padding-left: 35px;
+  border: 1px solid #DBDBDB;
+  border-radius: 5px;
+  outline: none;
 }
 
 .login-box .password {
-  margin: 10px 50px 0 50px;
-}
-
-.login-box input {
+  margin: 20px 50px 0 50px;
+  padding-left: 35px;
   width: 300px;
   height: 30px;
   border: 1px solid #DBDBDB;
@@ -73,28 +115,28 @@ export default {
 
 .login-box .login {
   width: 100px;
-  margin: 20px 30px 0 30px;
+  margin: 30px 30px 0 30px;
   border: 1px solid #DBDBDB;
   border-radius: 5px;
-  background: #31bb04;
+  background: #3cbcff;
   color: white;
 }
 
 .login-box .login:hover {
-  background: #00bb1a;
+  background: #1a87ff;
 }
 
 .login-box .register {
   width: 100px;
-  margin: 20px 30px 0 10px;
+  margin: 30px 30px 0 30px;
   border: 1px solid #DBDBDB;
   border-radius: 5px;
-  background: #31bb04;
+  background: #ff7ccb;
   color: white;
 }
 
 .login-box .register:hover {
-  background: #00bb1a;
+  background: #ff44bc;
 }
 
 </style>

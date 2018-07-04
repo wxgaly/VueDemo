@@ -26,6 +26,5 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     "quotes": [1, "single"],//引号类型 `` "" ''
-    "indent": [2, 4, {"SwitchCase":1}],
   }
 }
