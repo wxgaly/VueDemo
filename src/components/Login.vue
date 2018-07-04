@@ -2,17 +2,16 @@
 
   <div class="login-box">
 
-    <form class="form-username">
-      <input class="username" v-bind:placeholder="username_placeholder" v-model="usernameValue"/>
+    <form class="form" @submit="onLogin">
+      <input class="username" v-bind:placeholder="username_placeholder" v-model.trim="usernameValue"/>
+      <input class="password" v-bind:placeholder="password_placeholder" v-model.trim="passwordValue"/>
+      <input class="login" type="submit" value="登录">
+      <input class="register" type="button" value="注册" @click="onRegister">
     </form>
 
-    <form class="form-password">
-      <input class="password" v-bind:placeholder="password_placeholder" v-model="passwordValue"/>
-    </form>
-
-    <div>
-      <button @click="onLogin">登录</button>
-    </div>
+    <!--<div>-->
+      <!--<button v-bind:onsubmit="onLogin">登录</button>-->
+    <!--</div>-->
 
   </div>
 
@@ -32,12 +31,16 @@ export default {
   methods: {
     onLogin () {
       if (this.usernameValue && this.passwordValue) {
-        this.$api.login(this.usernameValue, this.passwordValue, function (res) {
+        this.$api.login(this.usernameValue, this.passwordValue, res => {
           console.log(res.data.username)
+          this.$router.replace('HelloWorld')
         })
       } else {
         alert('用户名或密码不能为空!')
       }
+    },
+    onRegister () {
+      console.log('Register')
     }
   }
 }
@@ -52,18 +55,12 @@ export default {
   display: inline-block;
 }
 
-.login-box .form-username {
+.login-box .username {
   margin: 100px 50px 0 50px;
-  width: 400px;
-  height: 50px;
-  text-align: center;
 }
 
-.login-box .form-password {
+.login-box .password {
   margin: 10px 50px 0 50px;
-  width: 400px;
-  height: 50px;
-  text-align: center;
 }
 
 .login-box input {
@@ -74,16 +71,29 @@ export default {
   outline: none;
 }
 
-.login-box button {
+.login-box .login {
   width: 100px;
-  margin: 20px 50px 0 50px;
+  margin: 20px 30px 0 30px;
   border: 1px solid #DBDBDB;
   border-radius: 5px;
   background: #31bb04;
   color: white;
 }
 
-.login-box button:hover {
+.login-box .login:hover {
+  background: #00bb1a;
+}
+
+.login-box .register {
+  width: 100px;
+  margin: 20px 30px 0 10px;
+  border: 1px solid #DBDBDB;
+  border-radius: 5px;
+  background: #31bb04;
+  color: white;
+}
+
+.login-box .register:hover {
   background: #00bb1a;
 }
 
