@@ -29,6 +29,16 @@ var login = function (username, password, callback) {
   })
 }
 
+var registerUser = function (username, password, callback) {
+  axios.post('/api/registerUser', qs.stringify({username: username, password: password})
+  ).then(function (response) {
+    callback(response)
+    console.log(response)
+  }).catch(function (response) {
+    console.log(response)
+  })
+}
+
 export {
-  login
+  login, registerUser
 }

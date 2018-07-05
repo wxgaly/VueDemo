@@ -50,7 +50,14 @@ export default {
       }
     },
     onRegister () {
-      console.log('Register')
+      if (this.usernameValue && this.passwordValue) {
+        this.$api.registerUser(this.usernameValue, this.passwordValue, res => {
+          console.log(res.data)
+          this.$router.replace('TodoList')
+        })
+      } else {
+        alert('用户名或密码不能为空!')
+      }
     }
   }
 }
