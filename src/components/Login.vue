@@ -42,8 +42,14 @@ export default {
     onLogin () {
       if (this.usernameValue && this.passwordValue) {
         this.$api.login(this.usernameValue, this.passwordValue, res => {
-          console.log(res.data.username)
-          this.$router.replace('HelloWorld')
+          var result = this.$api.getJsonResult(res.data.status)
+
+          if (result.code === this.$api.StatusCode.OK) {
+            this.$toast.showToast('登录成功!', 2000)
+            this.$router.replace('HelloWorld')
+          } else {
+            alert(result.message)
+          }
         })
       } else {
         alert('用户名或密码不能为空!')

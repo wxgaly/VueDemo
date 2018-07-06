@@ -39,6 +39,38 @@ var registerUser = function (username, password, callback) {
   })
 }
 
+const StatusCode = {
+  OK: 0,
+  EXCEPTION: 10000,
+  USERNAME_OR_PASSWORD_ERROR: 10001,
+  USERNAME_IS_REPEAT: 10002,
+  USERNAME_OR_PASSWORD_IS_NULL: 10003
+}
+
+const StatusInfo = [
+  {code: StatusCode.OK, message: '正确'},
+  {code: StatusCode.EXCEPTION, message: '未知异常'},
+  {code: StatusCode.USERNAME_OR_PASSWORD_ERROR, message: '用户名密码错误'},
+  {code: StatusCode.USERNAME_IS_REPEAT, message: '用户名重复'},
+  {code: StatusCode.USERNAME_OR_PASSWORD_IS_NULL, message: '用户名密码为空'}
+]
+
+var JsonResult = {
+  code: StatusCode.EXCEPTION,
+  message: '未知异常'
+}
+
+var getJsonResult = function (code) {
+  StatusInfo.filter(state => {
+    return code === state.code
+  }).forEach(state => {
+    console.log(state)
+    JsonResult.code = code
+    JsonResult.message = state.message
+  })
+  return JsonResult
+}
+
 export {
-  login, registerUser
+  login, registerUser, StatusCode, StatusInfo, JsonResult, getJsonResult
 }

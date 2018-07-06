@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import 'lib-flexible/flexible'
 import * as Api from './api/index.js'
+import toast from './components/toast/index'
 
 // import Utils from './utils/index.js'
 // import ElementUI from 'element-ui'
@@ -22,4 +23,5 @@ new Vue({
 
 // Vue.prototype.$utils = Utils
 Vue.prototype.$api = Api
+Vue.prototype.$toast = toast
 // Vue.use(ElementUI)
