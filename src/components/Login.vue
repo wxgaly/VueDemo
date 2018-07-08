@@ -58,8 +58,13 @@ export default {
     onRegister () {
       if (this.usernameValue && this.passwordValue) {
         this.$api.registerUser(this.usernameValue, this.passwordValue, res => {
-          console.log(res.data)
-          this.$router.replace('TodoList')
+          var result = this.$api.getJsonResult(res.data.status)
+          if (result.code === this.$api.StatusCode.OK) {
+            this.$toast.showToast('注册成功!', 2000)
+            this.$router.replace('TodoList')
+          } else {
+            alert(result.message)
+          }
         })
       } else {
         alert('用户名或密码不能为空!')
