@@ -1,12 +1,27 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <p>
+    <!--<p>
       <router-link to="/HelloWorld">Go HelloWorld</router-link>
       <router-link to="/TodoList">Go TodoList</router-link>
       <router-link to="/bar">Go to Bar</router-link>
       <router-link to="/Login">Go to Login</router-link>
-    </p>
+    </p>-->
+      <el-menu
+        class="el-menu"
+        :default-active="activeIndex"
+        mode="horizontal"
+        @select="handleSelect"
+        background-color="#5498b5"
+        text-color="#fff"
+        active-text-color="#ffd04b"
+        router>
+        <el-menu-item index="/HelloWorld">HelloWorld</el-menu-item>
+        <el-menu-item index="/TodoList">TodoList</el-menu-item>
+        <el-menu-item index="/bar">Bar</el-menu-item>
+        <el-menu-item index="/Login">登录界面</el-menu-item>
+        <el-menu-item index="2" disabled="">消息中心</el-menu-item>
+      </el-menu>
     <router-view id="routerView"/>
   </div>
 </template>
@@ -14,11 +29,19 @@
 <script>
 export default {
   name: 'App',
+  data () {
+    return {
+      activeIndex: '/Login'
+    }
+  },
   methods: {
     goBack () {
       window.history.length > 1
         ? this.$router.go(-1)
         : this.$router.push('/')
+    },
+    handleSelect (key, keyPath) {
+      // console.log(key, keyPath)
     }
   }
 }
@@ -34,6 +57,14 @@ export default {
   color: #2c3e50;
   font-size: large;
   /*margin-top: 60px;*/
+}
+
+.el-menu {
+  padding-left: 30%;
+}
+
+.el-menu-item {
+  font-size: 22px;
 }
 
 #app img {
