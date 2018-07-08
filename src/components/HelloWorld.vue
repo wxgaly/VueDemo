@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <el-card class="box-card" shadow="always">
+      <h1>{{ msg }}</h1>
+    </el-card>
     <!--<h2>Essential Links</h2>
     <ul>
       <li>

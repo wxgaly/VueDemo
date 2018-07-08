@@ -7,6 +7,7 @@
       <router-link to="/bar">Go to Bar</router-link>
       <router-link to="/Login">Go to Login</router-link>
     </p>-->
+    <el-container>
       <el-menu
         class="el-menu"
         :default-active="activeIndex"
@@ -22,7 +23,11 @@
         <el-menu-item index="/Login">登录界面</el-menu-item>
         <el-menu-item index="2" disabled="">消息中心</el-menu-item>
       </el-menu>
-    <router-view id="routerView"/>
+      <el-main>
+        <router-view id="routerView"/>
+      </el-main>
+      <el-footer>{{ author }}</el-footer>
+    </el-container>
   </div>
 </template>
 
@@ -31,7 +36,8 @@ export default {
   name: 'App',
   data () {
     return {
-      activeIndex: '/Login'
+      activeIndex: '/Login',
+      author: 'Create by WXG'
     }
   },
   methods: {
@@ -71,12 +77,24 @@ export default {
   display: none;
 }
 
+.el-main {
+  color: #333;
+  text-align: center;
+  height: 800px;
+}
+
 #routerView {
   display: inline-block;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
+}
+
+.el-footer {
+  color: #333;
+  text-align: center;
+  line-height: 60px;
 }
 
 </style>

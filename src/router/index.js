@@ -4,7 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import TodoList from '@/components/TodoList'
 import Login from '@/components/Login'
 
-const Bar = {template: '<div>bar</div>'}
+const Bar = {template: '<el-card class="box-card" shadow="hover"><div>bar</div></el-card>'}
 
 Vue.use(Router)
 
