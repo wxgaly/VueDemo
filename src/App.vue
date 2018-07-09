@@ -7,24 +7,24 @@
       <router-link to="/bar">Go to Bar</router-link>
       <router-link to="/Login">Go to Login</router-link>
     </p>-->
-    <el-container>
+    <el-container direction="vertical">
       <el-menu
-        class="el-menu"
-        :default-active="activeIndex"
-        mode="horizontal"
-        @select="handleSelect"
-        background-color="#5498b5"
-        text-color="#fff"
-        active-text-color="#ffd04b"
-        router>
-        <el-menu-item index="/HelloWorld">HelloWorld</el-menu-item>
-        <el-menu-item index="/TodoList">TodoList</el-menu-item>
-        <el-menu-item index="/bar">Bar</el-menu-item>
-        <el-menu-item index="/Login">登录界面</el-menu-item>
-        <el-menu-item index="2" disabled="">消息中心</el-menu-item>
-      </el-menu>
+          class="el-menu"
+          :default-active="$route.path"
+          mode="horizontal"
+          @select="handleSelect"
+          background-color="#1e90ff"
+          text-color="#fff"
+          active-text-color="#ffd04b"
+          router>
+          <el-menu-item index="/HelloWorld">HelloWorld</el-menu-item>
+          <el-menu-item index="/TodoList">TodoList</el-menu-item>
+          <el-menu-item index="/bar">Bar</el-menu-item>
+          <el-menu-item index="/Login">登录界面</el-menu-item>
+          <el-menu-item index="2" disabled="">消息中心</el-menu-item>
+        </el-menu>
       <el-main>
-        <router-view id="routerView"/>
+          <router-view id="routerView"/>
       </el-main>
       <el-footer>{{ author }}</el-footer>
     </el-container>
@@ -37,7 +37,7 @@ export default {
   data () {
     return {
       activeIndex: '/Login',
-      author: 'Create by WXG'
+      author: 'Created by WXG'
     }
   },
   methods: {
@@ -90,7 +90,7 @@ export default {
 .el-footer {
   color: #333;
   text-align: center;
-  line-height: 10%;
+  line-height: 60px;
 }
 
 </style>
