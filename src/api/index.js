@@ -19,22 +19,24 @@ axios.defaults.headers = {
   'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
 }
 
-var login = function (username, password, callback) {
+var login = function (username, password, callback, errorCallback) {
   axios.post('/api/login', qs.stringify({username: username, password: password})
   ).then(function (response) {
     callback(response)
     console.log(response)
   }).catch(function (response) {
+    errorCallback(response)
     console.log(response)
   })
 }
 
-var registerUser = function (username, password, callback) {
+var registerUser = function (username, password, callback, errorCallback) {
   axios.post('/api/registerUser', qs.stringify({username: username, password: password})
   ).then(function (response) {
     callback(response)
     console.log(response)
   }).catch(function (response) {
+    errorCallback(response)
     console.log(response)
   })
 }

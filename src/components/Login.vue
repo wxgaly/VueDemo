@@ -40,19 +40,35 @@ export default {
   },
   methods: {
     onLogin () {
+      const loginLoading = this.$loading({
+        lock: true,
+        text: '登录中...',
+        spinner: 'el-icon-loading',
+        background: 'rgba(0, 0, 0, 0.7)'
+      })
+
       if (this.usernameValue && this.passwordValue) {
         this.$api.login(this.usernameValue, this.passwordValue, res => {
+          loginLoading.close()
           var result = this.$api.getJsonResult(res.data.status)
 
           if (result.code === this.$api.StatusCode.OK) {
-            this.$toast.showToast('登录成功!', 2000)
+            // this.$toast.showToast('登录成功!', 2000)
+            this.$message({
+              message: '登录成功!',
+              type: 'success'
+            })
             this.$router.replace('HelloWorld')
           } else {
-            alert(result.message)
+            this.$message.error(result.message)
           }
+        }, () => {
+          loginLoading.close()
         })
       } else {
-        alert('用户名或密码不能为空!')
+        loginLoading.close()
+        // alert('用户名或密码不能为空!')
+        this.$message.error('用户名或密码不能为空!')
       }
     },
     onRegister () {
@@ -63,11 +79,16 @@ export default {
             this.$toast.showToast('注册成功!', 2000)
             this.$router.replace('TodoList')
           } else {
-            alert(result.message)
+            // alert(result.message)
+            this.$message.error(result.message)
           }
+        }, () => {
+          // alert('超时')
+          this.$message.error('超时')
         })
       } else {
-        alert('用户名或密码不能为空!')
+        // alert('用户名或密码不能为空!')
+        this.$message.error('用户名或密码不能为空!')
       }
     }
   }

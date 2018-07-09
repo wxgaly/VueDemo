@@ -65,10 +65,6 @@ export default {
   /*margin-top: 60px;*/
 }
 
-.el-menu {
-  padding-left: 30%;
-}
-
 .el-menu-item {
   font-size: 22px;
 }
@@ -80,7 +76,7 @@ export default {
 .el-main {
   color: #333;
   text-align: center;
-  height: 800px;
+  height: 1000px;
 }
 
 #routerView {
@@ -94,7 +90,7 @@ export default {
 .el-footer {
   color: #333;
   text-align: center;
-  line-height: 60px;
+  line-height: 10%;
 }
 
 </style>
