@@ -3,14 +3,21 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import 'lib-flexible/flexible'
+// import 'lib-flexible/flexible'
 import * as Api from './api/index.js'
 import toast from './components/toast/index'
+
+// ElementUI
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+// iView
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'
+
 // import Utils from './utils/index.js'
 Vue.use(ElementUI)
+Vue.use(iView)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

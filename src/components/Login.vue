@@ -64,6 +64,7 @@ export default {
           }
         }, () => {
           loginLoading.close()
+          this.$message.error('超时')
         })
       } else {
         loginLoading.close()
@@ -76,7 +77,11 @@ export default {
         this.$api.registerUser(this.usernameValue, this.passwordValue, res => {
           var result = this.$api.getJsonResult(res.data.status)
           if (result.code === this.$api.StatusCode.OK) {
-            this.$toast.showToast('注册成功!', 2000)
+            // this.$toast.showToast('注册成功!', 2000)
+            this.$message({
+              message: '注册成功!',
+              type: 'success'
+            })
             this.$router.replace('TodoList')
           } else {
             // alert(result.message)
@@ -118,16 +123,16 @@ export default {
   background: url("../assets/ic_user.png") no-repeat;
   position: absolute;
   top: 105px;
-  left: 88px;
-  width: 36px; /*设置图片显示的宽*/
-  height: 36px; /*图片显示的高*/
+  left: 110px;
+  width: 40px; /*设置图片显示的宽*/
+  height: 40px; /*图片显示的高*/
 }
 
 .login-box .form-password .icon-password {
   background: url("../assets/ic_password.png") no-repeat;
   position: absolute;
   top: 25px;
-  left: 88px;
+  left: 110px;
   width: 30px; /*设置图片显示的宽*/
   height: 30px; /*图片显示的高*/
 }

@@ -22,6 +22,7 @@
           <el-menu-item index="/bar">Bar</el-menu-item>
           <el-menu-item index="/Login">登录界面</el-menu-item>
           <el-menu-item index="2" disabled="">消息中心</el-menu-item>
+          <el-menu-item index="/IViewLayout">iView布局</el-menu-item>
         </el-menu>
       <el-main>
           <router-view id="routerView"/>
@@ -61,12 +62,8 @@ export default {
   text-align: center;
   vertical-align: middle;
   color: #2c3e50;
-  font-size: large;
+  font-size: 16px;
   /*margin-top: 60px;*/
-}
-
-.el-menu-item {
-  font-size: 22px;
 }
 
 #app img {
@@ -76,7 +73,7 @@ export default {
 .el-main {
   color: #333;
   text-align: center;
-  height: 1000px;
+  height: 600px;
 }
 
 #routerView {

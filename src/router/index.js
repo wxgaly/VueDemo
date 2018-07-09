@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import TodoList from '@/components/TodoList'
 import Login from '@/components/Login'
+import IViewLayout from '@/components/IViewLayout'
 
 const Bar = {template: '<el-tooltip content="这是一个文字提示" placement="top">' +
   '<el-card class="box-card" shadow="hover">' +
@@ -32,6 +33,10 @@ export default new Router({
     {
       path: '/Login',
       component: Login
+    },
+    {
+      path: '/IViewLayout',
+      component: IViewLayout
     }
   ]
 })
