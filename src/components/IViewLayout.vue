@@ -2,22 +2,22 @@
   <div class="layout">
     <Layout>
       <Header>
-        <Menu mode="horizontal" theme="dark" active-name="1" @on-select="onMenuSelected">
+        <Menu mode="horizontal" theme="dark" active-name="/IViewLayout/HelloWorld" @on-select="onMenuSelected">
           <div class="layout-logo"></div>
           <div class="layout-nav">
-            <MenuItem name="1">
+            <MenuItem name="/IViewLayout/HelloWorld">
               <Icon type="ios-navigate"></Icon>
               Item 1
             </MenuItem>
-            <MenuItem name="2">
+            <MenuItem name="/IViewLayout/TodoList">
               <Icon type="ios-keypad"></Icon>
               Item 2
             </MenuItem>
-            <MenuItem name="3">
+            <MenuItem name="/IViewLayout/bar">
               <Icon type="ios-analytics"></Icon>
               Item 3
             </MenuItem>
-            <MenuItem name="4">
+            <MenuItem name="/IViewLayout/Login">
               <Icon type="ios-paper"></Icon>
               Item 4
             </MenuItem>
@@ -62,6 +62,10 @@
           </Breadcrumb>
           <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
             Content {{ menuItemName }}
+            <div>
+              <router-view/>
+            </div>
+
           </Content>
           <Footer class="layout-footer-center">2018-7-10 &copy; Created by WXG</Footer>
         </Layout>
@@ -78,9 +82,14 @@ export default {
       menuItemName: '1'
     }
   },
+  mounted () {
+    this.$router.push('/IViewLayout/HelloWorld')
+    console.log('mounted')
+  },
   methods: {
     onMenuSelected (name) {
       this.menuItemName = name
+      this.$router.push(name)
     },
     onOpenChange (names) {
       console.log(names)

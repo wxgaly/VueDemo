@@ -36,7 +36,24 @@ export default new Router({
     },
     {
       path: '/IViewLayout',
-      component: IViewLayout
+      component: IViewLayout,
+      children: [
+        {
+          path: 'HelloWorld',
+          component: HelloWorld
+        },
+        {
+          path: 'TodoList',
+          component: TodoList
+        },
+        {
+          path: 'bar', component: Bar
+        },
+        {
+          path: 'Login',
+          component: Login
+        }
+      ]
     }
   ]
 })

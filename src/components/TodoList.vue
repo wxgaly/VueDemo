@@ -45,7 +45,8 @@ export default {
         this.items.push(this.inputString)
         this.inputString = ''
       } else {
-        alert('输入不能为空!')
+        // alert('输入不能为空!')
+        this.$Message.warning('输入不能为空!')
       }
     },
     deleteItem (index) {
