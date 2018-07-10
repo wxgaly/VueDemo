@@ -17,8 +17,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Login',
-      component: Login
+      name: 'IViewLayout',
+      component: IViewLayout
     },
     {
       path: '/TodoList',

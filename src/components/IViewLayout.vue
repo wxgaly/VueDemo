@@ -2,7 +2,7 @@
   <div class="layout">
     <Layout>
       <Header>
-        <Menu mode="horizontal" theme="dark" active-name="1">
+        <Menu mode="horizontal" theme="dark" active-name="1" @on-select="onMenuSelected">
           <div class="layout-logo"></div>
           <div class="layout-nav">
             <MenuItem name="1">
@@ -26,7 +26,7 @@
       </Header>
       <Layout>
         <Sider hide-trigger :style="{background: '#fff'}">
-          <Menu active-name="1-2" theme="light" width="auto" :open-names="['1']">
+          <Menu active-name="1-2" theme="light" width="auto" :open-names="['1']" @on-open-change="onOpenChange">
             <Submenu name="1">
               <template slot="title">
                 <Icon type="ios-navigate"></Icon>
@@ -61,8 +61,9 @@
             <BreadcrumbItem>Layout</BreadcrumbItem>
           </Breadcrumb>
           <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
-            Content
+            Content {{ menuItemName }}
           </Content>
+          <Footer class="layout-footer-center">2018-7-10 &copy; Created by WXG</Footer>
         </Layout>
       </Layout>
     </Layout>
@@ -71,7 +72,20 @@
 
 <script>
 export default {
-  name: 'IViewLayout'
+  name: 'IViewLayout',
+  data () {
+    return {
+      menuItemName: '1'
+    }
+  },
+  methods: {
+    onMenuSelected (name) {
+      this.menuItemName = name
+    },
+    onOpenChange (names) {
+      console.log(names)
+    }
+  }
 }
 </script>
 
@@ -82,9 +96,10 @@ export default {
   position: relative;
   border-radius: 4px;
   overflow: hidden;
+  width: 60%;
 }
 .layout-logo{
-  width: 100px;
+  width: 60px;
   height: 30px;
   background: #5b6270;
   border-radius: 3px;
@@ -94,7 +109,7 @@ export default {
   left: 20px;
 }
 .layout-nav{
-  width: 800px;
+  width: 420px;
   margin: 0 auto;
   margin-right: 20px;
 }

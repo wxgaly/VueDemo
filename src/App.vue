@@ -22,7 +22,10 @@
           <el-menu-item index="/bar">Bar</el-menu-item>
           <el-menu-item index="/Login">登录界面</el-menu-item>
           <el-menu-item index="2" disabled="">消息中心</el-menu-item>
-          <el-menu-item index="/IViewLayout">iView布局</el-menu-item>
+          <el-submenu index="2">
+            <template slot="title">iView</template>
+            <el-menu-item index="/IViewLayout">布局</el-menu-item>
+          </el-submenu>
         </el-menu>
       <el-main>
           <router-view id="routerView"/>
@@ -73,7 +76,7 @@ export default {
 .el-main {
   color: #333;
   text-align: center;
-  height: 600px;
+  height: 800px;
 }
 
 #routerView {
